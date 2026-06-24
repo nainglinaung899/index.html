@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <title>For You ❤️</title>
+    <style>
+        body { background: #0f0f1a; color: white; margin: 0; font-family: 'Padauk', sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; overflow-x: hidden; }
+        .heart { position: fixed; color: #ff758c; font-size: 20px; animation: float 5s linear infinite; opacity: 0.6; }
+        @keyframes float { 0% { transform: translateY(100vh); } 100% { transform: translateY(-10vh); } }
+        
+        .container { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 20px; backdrop-filter: blur(10px); width: 90%; max-width: 400px; text-align: center; border: 1px solid rgba(255,255,255,0.1); }
+        video { width: 100%; border-radius: 15px; border: 2px solid #ff758c; }
+        
+        .scrolling-text { height: 200px; overflow: hidden; margin-top: 20px; position: relative; color: #ddd; line-height: 1.8; }
+        .inner-text { position: absolute; width: 100%; animation: scrollUp 20s linear infinite; }
+        @keyframes scrollUp { 0% { top: 100%; } 100% { top: -100%; } }
+    </style>
+</head>
+<body>
+
+    <audio id="music" loop>
+        <source src="mysong.m4a" type="audio/mp4">
+    </audio>
+
+    <div class="container">
+        <h2>Our Memories ❤️</h2>
+        <video controls>
+            <source src="myvideo.mp4" type="video/mp4">
+        </video>
+
+        <div class="scrolling-text">
+            <div class="inner-text">
+                တစ်ရက်အကုန်စီ ဖုန်းဝင်လာခဲ့ပေါ့နော်။ <br>
+                သေချာမမြင်ဖူး၊ သေချာမသိတဲ့ သူတစ်ယောက်။ <br><br>
+                ပီးတော့မှ သူက အဒေါ်ကပြောတဲ့ ညီမတစ်ယောက်ဖြစ်နေခဲ့တယ်။ <br>
+                အက်ကနေ စကားတေပြောရင်း ညီမက အကို့ကို "အကို" လို့စခေါ်ပီး ဆူငေါက်ပြောဆိုနေတာလေးတေတွေ့တော့ အကိုညီမတစ်ယောက်ကောက်ရသလို ခံစားလိုက်ရတယ်။ <br><br>
+                နောက်ရက်တေမာလည်း စကားတေပြောဖြစ်။ <br>
+                အစကတည်းက အကိုက အထီးကျန်နေခဲ့သူမို့၊ အကိုအနားဘယ်သူမှမရှိတာမို့ အကိုဘဝထဲ ညီမရောက်လာခဲ့တယ်... ❤️
+            </div>
+        </div>
+        <button onclick="document.getElementById('music').play()" style="background:#ff758c; border:none; padding:10px 20px; color:white; border-radius:20px; margin-top:20px; cursor:pointer;">Play Music 🎵</button>
+    </div>
+
+    <script>
+        function createHeart() {
+            const h = document.createElement('div');
+            h.innerHTML = '❤️';
+            h.className = 'heart';
+            h.style.left = Math.random() * 100 + 'vw';
+            h.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.body.appendChild(h);
+            setTimeout(() => h.remove(), 5000);
+        }
+        setInterval(createHeart, 500);
+    </script>
+</body>
+</html>
